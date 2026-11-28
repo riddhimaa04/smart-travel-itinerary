@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart AI Trip Recommendations - TripEase</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== NAVIGATION BAR (filled by js/layout.js) ===== -->
+  <header class="navbar" id="site-header"></header>
+
+  <main>
+
+    <!-- ===== PAGE HEADING ===== -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Smart AI Trip Recommendations</h1>
+        <p>Tell us what you like and we will rank the destinations that suit you best.</p>
+      </div>
+    </section>
+
+    <section class="container section-small">
+
+      <!-- ===== PREFERENCES FORM ===== -->
+      <form id="recommend-form" class="panel" novalidate>
+        <h2>Your preferences</h2>
+        <div class="form-grid">
+
+          <div class="form-group">
+            <label for="destination-type">Preferred destination type</label>
+            <select id="destination-type">
+              <option value="Any">Any type</option>
+              <option value="Mountains">Mountains</option>
+              <option value="Beaches">Beaches</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Culture">Culture</option>
+              <option value="Nature">Nature</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="budget">Budget per person (₹)</label>
+            <input type="number" id="budget" min="1" placeholder="e.g. 20000">
+          </div>
+
+          <div class="form-group">
+            <label for="days">Number of travel days</label>
+            <input type="number" id="days" min="1" max="30" placeholder="e.g. 4">
+          </div>
+
+          <div class="form-group">
+            <label for="travel-style">Preferred travel style</label>
+            <select id="travel-style">
+              <option value="relaxing">Relaxing</option>
+              <option value="adventurous">Adventurous</option>
+              <option value="sightseeing">Sightseeing</option>
+            </select>
+          </div>
+
+        </div>
+        <p id="form-message" class="error-text"></p>
+        <button type="submit" class="button">Find My Destinations</button>
+      </form>
+
+      <!-- ===== RESULTS (filled by js/recommend.js) ===== -->
+      <div id="results" class="results"></div>
+
+      <!-- ===== HOW THE SCORE WORKS ===== -->
+      <div class="panel explainer">
+        <h2>How the match score works</h2>
+        <p>Every destination starts at 0 points and earns points from four simple rules. The total is out of 100, and that total is the match percentage.</p>
+        <table class="rules-table">
+          <tr><th>Rule</th><th>Full points</th><th>Partial points</th></tr>
+          <tr><td>Destination type matches</td><td>30</td><td>&ndash; (30 if you choose &ldquo;Any type&rdquo;)</td></tr>
+          <tr><td>Cost is within your budget</td><td>30</td><td>15 if up to 20% over budget</td></tr>
+          <tr><td>Your days fit the ideal trip length</td><td>20</td><td>10 if only 1 day outside the range</td></tr>
+          <tr><td>Travel style suits the destination</td><td>20</td><td>&ndash;</td></tr>
+        </table>
+        <p class="note-text"><strong>Please note:</strong> this is a rule-based prototype using sample data. It is not machine learning, it does not use ChatGPT or any AI service, and it does not use live prices. Destinations scoring below 50% are not shown.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER (filled by js/layout.js) ===== -->
+  <footer class="footer" id="site-footer"></footer>
+
+  <!-- ===== JAVASCRIPT (data first, then helpers, then this page's own script) ===== -->
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/recommend.js"></script>
+</body>
+</html>

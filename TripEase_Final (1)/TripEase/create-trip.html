@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plan a Trip - TripEase</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== NAVIGATION BAR (filled by js/layout.js) ===== -->
+  <header class="navbar" id="site-header"></header>
+
+  <main>
+
+    <!-- ===== PAGE HEADING ===== -->
+    <section class="page-header">
+      <div class="container">
+        <h1 id="page-title">Plan a New Trip</h1>
+        <p id="page-subtitle">Fill in the details and TripEase will save your trip in this browser.</p>
+      </div>
+    </section>
+
+    <section class="container section-small">
+
+      <!-- ===== TRIP FORM ===== -->
+      <form id="trip-form" class="panel narrow-panel" novalidate>
+
+        <div class="form-group">
+          <label for="trip-destination">Destination</label>
+          <select id="trip-destination"></select>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="start-date">Start date</label>
+            <input type="date" id="start-date">
+          </div>
+          <div class="form-group">
+            <label for="end-date">End date</label>
+            <input type="date" id="end-date">
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="travelers">Number of travelers</label>
+            <input type="number" id="travelers" min="1" max="50" value="2">
+          </div>
+          <div class="form-group">
+            <label for="trip-budget">Total budget (₹)</label>
+            <input type="number" id="trip-budget" min="1" placeholder="e.g. 40000">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Interests (optional)</label>
+          <div id="interest-list" class="interest-list"></div>
+        </div>
+
+        <p id="trip-message" class="error-text"></p>
+        <button type="submit" id="save-button" class="button">Save Trip</button>
+      </form>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER (filled by js/layout.js) ===== -->
+  <footer class="footer" id="site-footer"></footer>
+
+  <!-- ===== JAVASCRIPT (data first, then helpers, then this page's own script) ===== -->
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/create-trip.js"></script>
+</body>
+</html>

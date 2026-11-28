@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TripEase - Plan. Organize. Explore.</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== NAVIGATION BAR (filled by js/layout.js) ===== -->
+  <header class="navbar" id="site-header"></header>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <p class="hero-tag">AI-assisted travel planning</p>
+        <h1>Plan. Organize. <span class="highlight">Explore.</span></h1>
+        <p class="hero-text">Tell TripEase your budget, days and travel style. It scores every destination and shows you the best matches &mdash; then helps you save your trip plan.</p>
+        <div class="hero-buttons">
+          <a href="recommend.html" class="button button-light">Get Smart Recommendations</a>
+          <a href="explore.html" class="button button-outline-light">Explore Destinations</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SMART AI TRIP RECOMMENDATIONS (short explanation) ===== -->
+    <section class="section container">
+      <h2 class="section-title">Smart AI Trip Recommendations</h2>
+      <p class="section-subtitle">A transparent, rule-based scoring system &mdash; you can see exactly why a destination was suggested.</p>
+      <div class="steps-grid">
+        <div class="step-box">
+          <span class="step-number">1</span>
+          <h3>Enter preferences</h3>
+          <p>Destination type, budget, number of days and travel style.</p>
+        </div>
+        <div class="step-box">
+          <span class="step-number">2</span>
+          <h3>Score destinations</h3>
+          <p>Each destination earns points out of 100 using four simple rules.</p>
+        </div>
+        <div class="step-box">
+          <span class="step-number">3</span>
+          <h3>See ranked matches</h3>
+          <p>The best matches appear first, with a match percentage and reasons.</p>
+        </div>
+        <div class="step-box">
+          <span class="step-number">4</span>
+          <h3>Plan your trip</h3>
+          <p>Save the trip with dates, travelers and budget in My Trips.</p>
+        </div>
+      </div>
+      <p class="center-text"><a href="recommend.html" class="button">Try Recommendations</a></p>
+    </section>
+
+    <!-- ===== WHAT YOU CAN DO WITH TRIPEASE ===== -->
+    <section class="section container">
+      <h2 class="section-title">Everything you need to plan a trip</h2>
+      <p class="section-subtitle">Create a trip, then organise it from one page.</p>
+      <div class="steps-grid">
+        <div class="step-box">
+          <span class="step-number">📅</span>
+          <h3>Day-wise itinerary</h3>
+          <p>Add, edit, delete and re-order activities for every day.</p>
+        </div>
+        <div class="step-box">
+          <span class="step-number">💰</span>
+          <h3>Budget planner</h3>
+          <p>Add expenses by category and watch the progress bar and alerts.</p>
+        </div>
+        <div class="step-box">
+          <span class="step-number">🎒</span>
+          <h3>Packing checklist</h3>
+          <p>Start from a ready list for your destination type and tick items off.</p>
+        </div>
+        <div class="step-box">
+          <span class="step-number">♥</span>
+          <h3>Favorites</h3>
+          <p>Save destinations you like and find them on your dashboard.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURED DESTINATIONS (filled by js/home.js) ===== -->
+    <section class="section container">
+      <h2 class="section-title">Popular destinations</h2>
+      <p class="section-subtitle">Hand-picked places to start your next plan.</p>
+      <div id="featured-list" class="card-grid"></div>
+    </section>
+
+    <!-- ===== BROWSE BY TYPE ===== -->
+    <section class="section container">
+      <h2 class="section-title">Browse by type</h2>
+      <div class="type-links">
+        <a href="explore.html?type=Mountains" class="type-link">&#127956;&#65039; Mountains</a>
+        <a href="explore.html?type=Beaches" class="type-link">&#127958;&#65039; Beaches</a>
+        <a href="explore.html?type=Adventure" class="type-link">&#129495; Adventure</a>
+        <a href="explore.html?type=Culture" class="type-link">&#127963;&#65039; Culture</a>
+        <a href="explore.html?type=Nature" class="type-link">&#127807; Nature</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER (filled by js/layout.js) ===== -->
+  <footer class="footer" id="site-footer"></footer>
+
+  <!-- ===== JAVASCRIPT (data first, then helpers, then this page's own script) ===== -->
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/home.js"></script>
+</body>
+</html>

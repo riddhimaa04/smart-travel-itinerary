@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - TripEase</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== NAVIGATION BAR (filled by js/layout.js) ===== -->
+  <header class="navbar" id="site-header"></header>
+
+  <main>
+    <!-- ===== PAGE HEADING ===== -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Login</h1>
+        <p>Log in to plan trips, save favorites and use your dashboard.</p>
+      </div>
+    </section>
+
+    <section class="container section-small">
+
+      <!-- ===== LOGIN FORM ===== -->
+      <form id="login-form" class="panel auth-panel" novalidate>
+        <div class="form-group">
+          <label for="login-email">Email</label>
+          <input type="email" id="login-email" placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+          <label for="login-password">Password</label>
+          <input type="password" id="login-password">
+        </div>
+        <p id="login-message" class="error-text"></p>
+        <button type="submit" class="button button-full">Login</button>
+        <p class="auth-switch">New to TripEase? <a href="register.html">Create an account</a></p>
+        <p class="note-text">Demo admin account: <strong>admin@tripease.com</strong> / <strong>admin123</strong></p>
+      </form>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER (filled by js/layout.js) ===== -->
+  <footer class="footer" id="site-footer"></footer>
+
+  <!-- ===== JAVASCRIPT (data first, then helpers, then this page's own script) ===== -->
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Destinations - TripEase</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== NAVIGATION BAR (filled by js/layout.js) ===== -->
+  <header class="navbar" id="site-header"></header>
+
+  <main>
+
+    <!-- ===== PAGE HEADING ===== -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Explore Destinations</h1>
+        <p>Search and filter to find the perfect place for your next trip.</p>
+      </div>
+    </section>
+
+    <section class="container section-small">
+
+      <!-- ===== SEARCH AND FILTERS ===== -->
+      <div class="filter-bar">
+        <div class="form-group">
+          <label for="search-input">Search</label>
+          <input type="text" id="search-input" placeholder="Name, region or highlight">
+        </div>
+        <div class="form-group">
+          <label for="type-select">Destination type</label>
+          <select id="type-select">
+            <option value="All">All types</option>
+            <option value="Mountains">Mountains</option>
+            <option value="Beaches">Beaches</option>
+            <option value="Adventure">Adventure</option>
+            <option value="Culture">Culture</option>
+            <option value="Nature">Nature</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="budget-select">Budget per person</label>
+          <select id="budget-select">
+            <option value="any">Any budget</option>
+            <option value="low">Under ₹15,000</option>
+            <option value="mid">₹15,000 – ₹30,000</option>
+            <option value="high">Above ₹30,000</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- ===== RESULTS (filled by js/explore.js) ===== -->
+      <p id="result-count" class="result-count"></p>
+      <div id="destination-list" class="card-grid"></div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER (filled by js/layout.js) ===== -->
+  <footer class="footer" id="site-footer"></footer>
+
+  <!-- ===== JAVASCRIPT (data first, then helpers, then this page's own script) ===== -->
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/explore.js"></script>
+</body>
+</html>

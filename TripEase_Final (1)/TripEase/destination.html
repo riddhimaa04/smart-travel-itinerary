@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destination - TripEase</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== NAVIGATION BAR (filled by js/layout.js) ===== -->
+  <header class="navbar" id="site-header"></header>
+
+  <main>
+
+    <!-- Shown only if the destination id in the address does not exist -->
+    <section id="not-found-message" class="container section-small" hidden>
+      <p class="message-box">Destination not found. <a href="explore.html">Back to Explore</a></p>
+    </section>
+
+    <div id="destination-content">
+
+      <!-- ===== DESTINATION HEADER ===== -->
+      <section id="dest-hero" class="detail-hero">
+        <div class="container">
+          <a href="explore.html" class="back-link">&larr; Back to Explore</a>
+          <span id="dest-type" class="badge"></span>
+          <h1 id="dest-name"></h1>
+          <p id="dest-region" class="detail-region"></p>
+          <p id="dest-tagline" class="detail-tagline"></p>
+        </div>
+      </section>
+
+      <section class="container detail-layout">
+
+        <!-- ===== MAIN INFORMATION ===== -->
+        <div class="detail-main">
+          <h2>About this destination</h2>
+          <p id="dest-description"></p>
+
+          <h3>Gallery</h3>
+          <div id="dest-gallery" class="gallery"></div>
+
+          <h3>Highlights</h3>
+          <ul id="dest-highlights" class="highlight-list"></ul>
+
+          <h3>Suggested activities</h3>
+          <div id="dest-activities"></div>
+        </div>
+
+        <!-- ===== QUICK FACTS ===== -->
+        <aside class="side-box">
+          <h3>Quick facts</h3>
+          <p class="fact-label">Best time to visit</p>
+          <p id="dest-best-time" class="fact-value"></p>
+          <p class="fact-label">Ideal trip length</p>
+          <p id="dest-duration" class="fact-value"></p>
+          <p class="fact-label">Estimated cost (sample data)</p>
+          <p id="dest-cost" class="fact-value"></p>
+          <p class="fact-label">Suits travel styles</p>
+          <p id="dest-styles" class="fact-value"></p>
+          <a id="plan-trip-link" href="create-trip.html" class="button button-full">Plan a trip here</a>
+          <button type="button" id="favorite-button" class="button button-outline button-full fav-wide" data-wide>♡ Save to favorites</button>
+        </aside>
+      </section>
+    </div>
+
+  </main>
+
+  <!-- ===== FOOTER (filled by js/layout.js) ===== -->
+  <footer class="footer" id="site-footer"></footer>
+
+  <!-- ===== JAVASCRIPT (data first, then helpers, then this page's own script) ===== -->
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/destination.js"></script>
+</body>
+</html>

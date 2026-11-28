@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Trips - TripEase</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== NAVIGATION BAR (filled by js/layout.js) ===== -->
+  <header class="navbar" id="site-header"></header>
+
+  <main>
+
+    <!-- ===== PAGE HEADING ===== -->
+    <section class="page-header">
+      <div class="container">
+        <h1>My Trips</h1>
+        <p id="trip-count">Everything you have planned, in one place.</p>
+      </div>
+    </section>
+
+    <!-- ===== TRIP STATISTICS, TABS AND TRIP CARDS (filled by js/my-trips.js) ===== -->
+    <section class="container section-small">
+      <div id="trip-stats" class="stats-grid"></div>
+      <div id="trip-tabs" class="tab-bar"></div>
+      <div id="trip-list" class="card-grid"></div>
+    </section>
+
+    <!-- ===== FAVORITE DESTINATIONS ===== -->
+    <section id="favorites" class="container section-small">
+      <h2 class="section-title">Saved destinations</h2>
+      <p class="section-subtitle">Destinations you marked with the heart button.</p>
+      <div id="favorite-list" class="card-grid"></div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER (filled by js/layout.js) ===== -->
+  <footer class="footer" id="site-footer"></footer>
+
+  <!-- ===== JAVASCRIPT (data first, then helpers, then this page's own script) ===== -->
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/my-trips.js"></script>
+</body>
+</html>

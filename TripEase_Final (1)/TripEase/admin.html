@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - TripEase</title>
+  <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== NAVIGATION BAR (filled by js/layout.js) ===== -->
+  <header class="navbar" id="site-header"></header>
+
+  <main>
+    <!-- ===== PAGE HEADING ===== -->
+    <section class="page-header">
+      <div class="container">
+        <h1>Admin Panel</h1>
+        <p>Manage destinations and activities and see simple platform statistics.</p>
+      </div>
+    </section>
+
+    <section class="container section-small">
+
+      <!-- ===== TABS ===== -->
+      <div class="tab-bar">
+        <button type="button" id="admin-tab-dashboard" class="tab-button active" onclick="showAdminTab('dashboard')">📊 Dashboard</button>
+        <button type="button" id="admin-tab-destinations" class="tab-button" onclick="showAdminTab('destinations')">📍 Destinations</button>
+        <button type="button" id="admin-tab-activities" class="tab-button" onclick="showAdminTab('activities')">🧭 Activities</button>
+      </div>
+
+      <!-- ===== TAB 1: DASHBOARD STATISTICS ===== -->
+      <div id="admin-panel-dashboard">
+        <div id="admin-stats" class="stats-grid"></div>
+        <div class="panel">
+          <h2 class="admin-section-title">Destinations by type</h2>
+          <div id="admin-type-bars"></div>
+        </div>
+      </div>
+
+      <!-- ===== TAB 2: MANAGE DESTINATIONS ===== -->
+      <div id="admin-panel-destinations" hidden>
+        <form id="destination-form" class="panel" novalidate>
+          <h2 id="destination-form-title" class="admin-section-title">Add a destination</h2>
+          <div class="form-grid-3">
+            <div class="form-group"><label for="d-name">Name</label><input type="text" id="d-name"></div>
+            <div class="form-group"><label for="d-region">Region</label><input type="text" id="d-region"></div>
+            <div class="form-group">
+              <label for="d-type">Type</label>
+              <select id="d-type">
+                <option value="Mountains">Mountains</option>
+                <option value="Beaches">Beaches</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Culture">Culture</option>
+                <option value="Nature">Nature</option>
+              </select>
+            </div>
+            <div class="form-group"><label for="d-cost">Cost per person (₹)</label><input type="number" id="d-cost" min="1"></div>
+            <div class="form-group"><label for="d-min">Ideal days (from)</label><input type="number" id="d-min" min="1"></div>
+            <div class="form-group"><label for="d-max">Ideal days (to)</label><input type="number" id="d-max" min="1"></div>
+            <div class="form-group"><label for="d-rating">Rating (0 to 5)</label><input type="number" id="d-rating" min="0" max="5" step="0.1" value="4"></div>
+            <div class="form-group"><label for="d-color1">Card colour 1</label><input type="color" id="d-color1" value="#1B7A43"></div>
+            <div class="form-group"><label for="d-color2">Card colour 2</label><input type="color" id="d-color2" value="#8FD3A8"></div>
+          </div>
+          <div class="form-group">
+            <label>Travel styles it suits</label>
+            <div class="interest-list">
+              <label class="interest-option"><input type="checkbox" name="d-style" value="relaxing"> relaxing</label>
+              <label class="interest-option"><input type="checkbox" name="d-style" value="adventurous"> adventurous</label>
+              <label class="interest-option"><input type="checkbox" name="d-style" value="sightseeing"> sightseeing</label>
+            </div>
+          </div>
+          <div class="form-group"><label for="d-tagline">Tagline</label><input type="text" id="d-tagline"></div>
+          <div class="form-group"><label for="d-description">Description</label><textarea id="d-description" rows="3"></textarea></div>
+          <div class="form-grid">
+            <div class="form-group"><label for="d-besttime">Best time to visit</label><input type="text" id="d-besttime"></div>
+            <div class="form-group"><label for="d-highlights">Highlights (one per line)</label><textarea id="d-highlights" rows="3"></textarea></div>
+          </div>
+          <label class="interest-option"><input type="checkbox" id="d-featured"> Featured on the home page</label>
+          <p id="destination-message" class="error-text"></p>
+          <div class="button-row">
+            <button type="submit" id="destination-save-button" class="button">Add destination</button>
+            <button type="button" id="destination-cancel-button" class="button button-outline" onclick="cancelDestinationEdit()" hidden>Cancel edit</button>
+          </div>
+        </form>
+
+        <div class="panel table-panel">
+          <div class="form-group">
+            <label for="admin-search">Search destinations</label>
+            <input type="text" id="admin-search" placeholder="Name or region">
+          </div>
+          <div class="admin-table-wrap"><table class="admin-table" id="destination-table"></table></div>
+          <div class="button-row">
+            <button type="button" class="button button-outline button-small" onclick="resetToSampleData()">Reset to sample data</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== TAB 3: MANAGE ACTIVITIES ===== -->
+      <div id="admin-panel-activities" hidden>
+        <div class="panel">
+          <div class="form-group">
+            <label for="activity-destination-select">Destination</label>
+            <select id="activity-destination-select" onchange="cancelAdminActivityEdit(); showAdminActivities()"></select>
+          </div>
+          <div class="admin-table-wrap"><table class="admin-table" id="admin-activity-table"></table></div>
+        </div>
+
+        <form id="admin-activity-form" class="panel" novalidate>
+          <h2 id="admin-activity-form-title" class="admin-section-title">Add an activity</h2>
+          <div class="form-grid-3">
+            <div class="form-group"><label for="a-name">Activity name</label><input type="text" id="a-name"></div>
+            <div class="form-group"><label for="a-category">Category</label><select id="a-category"></select></div>
+            <div class="form-group"><label for="a-cost">Estimated cost (₹, 0 = free)</label><input type="number" id="a-cost" min="0" value="0"></div>
+          </div>
+          <p id="admin-activity-message" class="error-text"></p>
+          <div class="button-row">
+            <button type="submit" id="admin-activity-save-button" class="button">Add activity</button>
+            <button type="button" id="admin-activity-cancel-button" class="button button-outline" onclick="cancelAdminActivityEdit()" hidden>Cancel edit</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER (filled by js/layout.js) ===== -->
+  <footer class="footer" id="site-footer"></footer>
+
+  <!-- ===== JAVASCRIPT (data first, then helpers, then this page's own script) ===== -->
+  <script src="js/data.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/layout.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
